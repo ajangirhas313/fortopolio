@@ -1,0 +1,224 @@
+/* Variabel Warna Tema Galaksi & Reset Dasar */
+:root {
+    --bg-color: #0c0c1d;
+    --primary-color: #1a1a3a;
+    --secondary-color: #2a2a5a;
+    --accent-color: #00ffff; /* Cyan terang */
+    --text-color: #d1d1e0;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Container Animasi Partikel */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Penting: letakkan di belakang konten */
+}
+
+/* Utilitas */
+h1, h2, h3, .logo {
+    font-family: var(--font-heading);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+section {
+    padding: 6rem 2rem;
+    position: relative;
+    background-color: rgba(12, 12, 29, 0.6); /* Sedikit transparan agar bintang terlihat */
+    backdrop-filter: blur(2px);
+}
+
+/* Navigasi */
+header {
+    background-color: rgba(12, 12, 29, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    text-shadow: 0 0 8px var(--accent-color);
+}
+
+nav ul { list-style: none; display: flex; }
+nav ul li { margin-left: 2rem; }
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Hero Section */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent; /* Latar belakang ditangani oleh #particles-js */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.typing-text {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-shadow: 0 0 8px var(--accent-color);
+    border-right: .15em solid var(--accent-color);
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-color); }
+}
+
+/* Tentang Saya */
+#about .about-container { display: flex; align-items: center; gap: 2rem; max-width: 900px; margin: 2rem auto; }
+.profile-pic {
+    width: 500px;
+    height: 500px;
+    border-radius: 10%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color);
+    object-fit: cover;
+}
+#about h3 { margin-top: 2rem; text-align: center; }
+.skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+.skills span {
+    background-color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.skills span:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Proyek */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.project-card {
+    background-color: rgba(26, 26, 58, 0.8); /* Semi-transparent */
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
+.project-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid rgba(0, 255, 255, 0.3); }
+.project-card h3 { padding: 1.5rem 1.5rem 0.5rem; }
+.project-card p { padding: 0 1.5rem 1.5rem; font-size: 0.9rem; }
+.project-links { padding: 0 1.5rem 1.5rem; display: flex; gap: 1rem; }
+.project-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: text-shadow 0.3s;
+}
+.project-links a:hover { text-shadow: 0 0 8px var(--accent-color); }
+.project-links a i { margin-right: 0.5rem; }
+
+/* Kontak */
+#contact { text-align: center; }
+.social-links { margin-top: 2rem; }
+.social-links a {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin: 0 1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-color);
+}
+
+/* Footer */
+footer { text-align: center; padding: 2rem; background-color: #000; }
+
+/* Animasi Scroll */
+.animated-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.animated-section.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsif */
+@media(max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.2rem; }
+    nav ul { display: none; }
+    #about .about-container { flex-direction: column; text-align: center; }
+}
