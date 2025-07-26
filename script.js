@@ -124,6 +124,30 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
+    // --- LOGIKA UNTUK MODAL LIGHTBOX SERTIFIKAT ---
+    const modal = document.getElementById("lightbox-modal");
+    const modalImg = document.getElementById("lightbox-image");
+    const certificateImages = document.querySelectorAll(".certificate-item img");
+    const closeModal = document.querySelector(".lightbox-close");
+
+    certificateImages.forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+    });
+
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Menutup modal saat mengklik di luar gambar
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
     // --- UPDATE TAHUN DI FOOTER ---
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
